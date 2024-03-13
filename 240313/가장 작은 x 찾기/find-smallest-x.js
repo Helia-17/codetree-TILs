@@ -7,7 +7,7 @@ let list = input.slice(2).map(row => row.split(" ").map(Number))
 function solution() {
     let min = 10000
     let x = 0
-    for (let i = startA; i < startB; i++) {
+    for (let i = startA; i <= startB; i++) {
         if (i % 2 !== 0) continue
         x = parseInt(i / 2)
         let flag = true
