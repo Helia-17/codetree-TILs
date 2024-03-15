@@ -9,7 +9,7 @@ function solution() {
         let cnt = 1
         for (let [idx2, j] of list.entries()) {
             if (idx === idx2) continue
-            if (Math.abs(i  - j) < k) cnt += 1
+            if (Math.abs(i  - j) <= k) cnt += 1
         }
         if (cnt > max) max = cnt
     }
