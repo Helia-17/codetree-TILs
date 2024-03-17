@@ -25,14 +25,16 @@ const getCombinations = function (arr, selectNumber) {
 
 function solution() {
     let min = 100
-    for (let i = 0; i <= k; i++) {
-        // 최대 거리가 i이내 일 때 (i <= k), 사용할 수 있는 돌의 개수는 n - i + 1개다.
-        let use = n - i + 1
-        let stoneList = getCombinations(list, use)
+    // [!] 첫번째 돌은 항상 포함되어야 한다
+    for (let i = 1; i <= k; i++) {
+        // 최대 거리가 i이내 일 때 (i <= k), 첫번째 돌을 제외하고 사용할 수 있는 돌의 개수는 n - i개다.
+        let use = n - i
+        let stoneList = getCombinations(list.slice(1), use)
         if (stoneList.length === 0) continue
         for (let stones of stoneList) {
             // [!] 적혀있던 숫자들 중 "최댓값이 최소가 되도록"
-            let max = Math.max(...stones)
+            // [!] 조합에 첫번째 돌을 항상 추가
+            let max = Math.max(...stones, list[0])
             if (max < min) min = max   
         }
     }
