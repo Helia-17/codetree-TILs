@@ -9,6 +9,7 @@ let min = Math.min(...arr)
 while (min <= Math.max(...arr)) {
     let cos = 0
     for (let i=0; i<n; i++) {
+        if (min <= arr[i] && min+k >= arr[i]) continue
         cos += Math.min(Math.abs(arr[i]-min), Math.abs(arr[i]-min-k))
     }
     if (minCos > cos) minCos = cos
