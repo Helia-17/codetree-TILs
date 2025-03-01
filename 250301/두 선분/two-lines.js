@@ -4,6 +4,4 @@ const fs = require("fs");
 const input = fs.readFileSync(0).toString().trim().split('\n');
 const [x1, x2, x3, x4] = input[0].split(' ').map(Number);
 
-let flag = true
-if (x2 < x3 || x4 < x1) flag = false
-console.log(flag? 'intersecting' : 'nonintersecting')
+console.log(x2 < x3 || x4 < x1? 'nonintersecting' : 'intersecting')
