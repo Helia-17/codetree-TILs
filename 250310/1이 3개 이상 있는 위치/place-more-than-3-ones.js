@@ -12,7 +12,7 @@ for (let i = 0; i < n; i++) {
         for (let l = 0; l < 4; l++) {
             let nx = i + arr[l][0]
             let ny = j + arr[l][1]
-            if (![nx, ny].includes(-1) && ![nx, ny].includes(4) && grid[nx][ny] === 1) cnt += 1
+            if (![nx, ny].includes(-1) && ![nx, ny].includes(n) && grid[nx][ny] === 1) cnt += 1
         }
         if (cnt >= 3) ans += 1
     }
