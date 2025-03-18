@@ -1,3 +1,4 @@
+// (!) max가 k보다 작을 경우를 고려해야 함
 const fs = require("fs");
 const input = fs.readFileSync(0).toString().trim().split('\n');
 
@@ -12,7 +13,7 @@ for (let i = 1; i <= n; i++) {
   people[num] = point;
 }
 let ans = 0
-for (let j = 1; j < max - k + 2; j++) {
+for (let j = 1; j < Math.max(max, max - k + 2); j++) {
     let total = 0
     for (let l = j; l < j+k+1; l++) {
         total += people[l]
@@ -21,5 +22,3 @@ for (let j = 1; j < max - k + 2; j++) {
 }
 
 console.log(ans)
-
-// Please Write your code here.
