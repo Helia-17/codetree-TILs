@@ -1,3 +1,4 @@
+// (!) 슬라이딩 윈도우
 // (!) max가 k보다 작을 경우를 고려해야 함
 const fs = require("fs");
 const input = fs.readFileSync(0).toString().trim().split('\n');
@@ -13,11 +14,17 @@ for (let i = 1; i <= n; i++) {
   people[num] = point;
 }
 let ans = 0
-for (let j = 1; j < Math.max(max, max - k + 2); j++) {
-    let total = 0
-    for (let l = j; l < j+k+1; l++) {
+let total = 0
+for (let j = 1; j < Math.max(max, max-k+2); j++) {
+    if (j===1) {
+      for (let l = j; l < j+k+1; l++) {
         total += people[l]
+      }
+    } else {
+      total -= people[j-1]
+      total += people[j+k]
     }
+
     if (total > ans) ans = total
 }
 
