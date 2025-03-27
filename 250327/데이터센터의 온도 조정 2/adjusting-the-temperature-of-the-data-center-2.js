@@ -1,3 +1,4 @@
+// (!) 범위를 확인하면 선호 온도 이하에서 작업량이 더 높을 수 있음
 const fs = require("fs");
 const input = fs.readFileSync(0).toString().trim().split('\n');
 
@@ -15,7 +16,7 @@ for (let i = 1; i <= n; i++) {
 }
 
 let ans = 0
-for (let j = min; j <= max; j++) {
+for (let j = min - 1; j <= max; j++) {
   let sum = 0
   for (let l = 0; l < n; l++) {
     if (ta[l] > j) sum += c
