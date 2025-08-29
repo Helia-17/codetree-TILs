@@ -1,4 +1,5 @@
-// 1m/s부터 최고속력까지의 합 * 2 - 최고속력이 X보다 작아야 해당 최고속력만큼 속도를 낸 뒤에 1m/s로 도착할 수 있음
+// 1m/s부터 `최고속력까지의 합 * 2 - 최고속력`이 X보다 작아야 해당 최고속력만큼 속도를 낸 뒤에 1m/s로 도착할 수 있음
+// [!] 합 공식 i * (i + 1) / 2
 const fs = require("fs");
 const input = fs.readFileSync(0).toString().trim().split("\n");
 
@@ -11,11 +12,7 @@ let maxSum = 0 // 1~최고속력~1 까지 달린 거리
 // 최고속력 구하기
 while (i < x) {
     if (x - i <= 0) break
-    let sum = 0
-    for (let j = 1; j <= i; j++) {
-        sum += j
-    }
-    sum = sum * 2 - i
+    let sum = i * (i + 1) - i
     if (sum > x) break
     else {
         max = i
