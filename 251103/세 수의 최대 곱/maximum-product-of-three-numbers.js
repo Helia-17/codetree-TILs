@@ -25,9 +25,10 @@ maxPlus = Math.max(maxPlus, ...plusCandidate)
 
 let minMinus = -1001
 const minusCandidate = []
-const len = minus.length
-if (minus.length >= 3) minusCandidate.push(minus[len-1]*minus[len-2]*minus[len-3])
-if (minus.length >= 1 && plus.length >= 2 ) minusCandidate.push(plus[len-1]*plus[len-2]*minus[len-1])
+const plusLen = plus.length
+const minusLen = minus.length
+if (minus.length >= 3) minusCandidate.push(minus[minusLen-1]*minus[minusLen-2]*minus[minusLen-3])
+if (minus.length >= 1 && plus.length >= 2 ) minusCandidate.push(plus[plusLen-1]*plus[plusLen-2]*minus[minusLen-1])
 minMinus = Math.max(minMinus, ...minusCandidate)
 
 if (zero) console.log(Math.max(maxPlus, minMinus, 0))
